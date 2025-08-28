@@ -26,11 +26,11 @@ test('login test', async () => {
     await expect (page.getByRole("heading",{name:"Register Account"})).toBeVisible();
     console.log("Info text visible");
 
-    await page.getByRole('textbox', { name: '* First Name' }).fill("Demo1");
+    await page.getByRole('textbox', { name: '* First Name' }).fill("Demo11");
 
-    await page.getByRole('textbox', { name: '* Last Name' }).fill("user1");
-    await page.getByRole('textbox', { name: '* E-Mail' }).fill("demuser9009@gmail.com");
-    await page.getByRole('textbox', { name: '* Telephone' }).fill("9440944000");
+    await page.getByRole('textbox', { name: '* Last Name' }).fill("user11");
+    await page.getByRole('textbox', { name: '* E-Mail' }).fill("demuser967009@gmail.com");
+    await page.getByRole('textbox', { name: '* Telephone' }).fill("9449944000");
     await page.getByRole('textbox', { name: '* Password', exact: true }).fill("Test@1234");
     await page.getByRole('textbox', { name: '* Password Confirm' }).fill("Test@1234");
     await page.getByRole('checkbox').check();
