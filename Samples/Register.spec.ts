@@ -7,7 +7,7 @@ test('login test', async () => {
 
     const browser: Browser = await chromium.launch(
         { 
-            headless: false, 
+            headless: true, 
             channel: 'chrome' 
         });
 
