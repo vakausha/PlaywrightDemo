@@ -15,21 +15,24 @@ test('login test', async () => {
     console.log("Webpage Launched");
     await page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 
-
     //await page.getByRole('link', { name: ' My Account' }).click();
 
     await page.getByText("My Account").first().click();
 
     //await page.locator('#top-links').getByRole('link', { name: 'Register' }).click();
-        await page.getByText("Register").first().click();
+    await page.getByText("Register").first().click();
 
     await expect (page.getByRole("heading",{name:"Register Account"})).toBeVisible();
     console.log("Info text visible");
 
-    await page.getByRole('textbox', { name: '* First Name' }).fill("Demo191");
+    // Generate random email ID
+    const randomEmail = `user${Date.now()}${Math.floor(Math.random() * 1000)}@gmail.com`;
 
+    console
+
+    await page.getByRole('textbox', { name: '* First Name' }).fill("Demo191");
     await page.getByRole('textbox', { name: '* Last Name' }).fill("user191");
-    await page.getByRole('textbox', { name: '* E-Mail' }).fill("demu454967009@gmail.com");
+    await page.getByRole('textbox', { name: '* E-Mail' }).fill(randomEmail);
     await page.getByRole('textbox', { name: '* Telephone' }).fill("9449944000");
     await page.getByRole('textbox', { name: '* Password', exact: true }).fill("Test@1234");
     await page.getByRole('textbox', { name: '* Password Confirm' }).fill("Test@1234");
@@ -38,5 +41,4 @@ test('login test', async () => {
     await expect (page.getByRole("heading",{name:"Your Account Has Been Created!"})).toBeVisible();
     await page.screenshot({path:"Successmessage.png"});
         
-
 });
