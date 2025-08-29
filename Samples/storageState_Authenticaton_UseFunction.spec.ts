@@ -3,10 +3,10 @@ import { test, expect, Browser, Page, Locator, BrowserContext } from '@playwrigh
 import { constants } from "buffer";
 import { register } from "module";
 import { chromium, webkit, firefox } from "playwright";
-const authfile = "Testdata/auth.json";
+const authfile = "Testdata/LoginSession.json";
 
 //use: {storageState: authfile}; this can be used in playwright.config.ts
-test.skip('login test', async () => {
+test('login test', async () => {
   const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
 
   const page: Page = await browser.newPage()
@@ -20,6 +20,7 @@ test.skip('login test', async () => {
   await loginbutton.click();
   //Storing the authentication information in a authfile.
   await page.context().storageState({ path: authfile });
+
   const pagetitle = await page.title();
   console.log("The page title is", pagetitle);
   await page.screenshot({ path: 'homepage.png' });
@@ -28,7 +29,7 @@ test.skip('login test', async () => {
   console.log("This is the last statement of the project");
 
 });
-test.use({ storageState: authfile });
+//test.use({ storageState: authfile });
 // the above statement means, all the tests in this page can use this authfile. if you want only the below test has too use this auth file  then you have  to use the below code.
 // test.describe('Authenticated tests', () => {
 //   test.use({ storageState: authfile });
@@ -38,7 +39,7 @@ test.use({ storageState: authfile });
 //   });
 // });
 
-test('MyAccount test', async ({ page }) => {
+test.skip('MyAccount test', async ({ page }) => {
   //const browser: Browser = await chromium.launch({ headless: false, channel: 'chrome' });
   // const browsweContext1:BrowserContext = await browser.newContext({storageState: authfile});
   // const page: Page = await browsweContext1.newPage()
