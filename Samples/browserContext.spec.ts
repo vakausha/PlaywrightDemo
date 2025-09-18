@@ -13,7 +13,7 @@ const browser1:Browser= await chromium.launch({headless: false, channel:'chrome'
 const browser2:Browser= await firefox.launch({headless: false, channel:'firefox'});
 
 const browserContext1:BrowserContext = await browser1.newContext();
-const page1: Page =  await browserContext1.newPage();
+//const page1: Page =  await browserContext1.newPage();
 
 console.log("Chrome Webpage Launched");
 await page1.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
